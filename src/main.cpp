@@ -1,7 +1,15 @@
+
+#include<iostream>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 int main(void)
 {
+
+    int counter = 0;
+
     GLFWwindow* window;
+
+
 
     /* Initialize the library */
     if (!glfwInit())
@@ -21,9 +29,13 @@ int main(void)
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
+        counter++;
+        if (counter %100 == 0) {
+            std::cout << "Counter: " << counter/100 << std::endl;
+        }
         /* Render here */
-        glClear(GL_COLOR_BUFFER_BIT);
-
+        //glClear(GL_COLOR_BUFFER_BIT);
+        
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 
