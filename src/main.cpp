@@ -33,6 +33,7 @@ const char* fragmentShaderSource = "#version 330 core\n"
 "	FragColor = texture(ourTexture, TexCoord);\n"
 "}\n\0";
 
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 
 
@@ -50,6 +51,9 @@ int main() {
 
 	//Window Creation
 	GLFWwindow* window = glfwCreateWindow(1280, 720, "main", NULL, NULL);
+
+	glfwSetKeyCallback(window, key_callback);
+
 	if (window == NULL) {
 		std::cout << "FAIL" << std::endl;
 		glfwTerminate();
@@ -58,8 +62,6 @@ int main() {
 	glfwMakeContextCurrent(window);
 	gladLoadGL();
 	glViewport(0, 0, 1280, 720);
-
-
 
 
 
@@ -149,6 +151,7 @@ int main() {
 
 
 	float yPos = 0;
+	float xPos = 0;
 
 	while (!glfwWindowShouldClose(window)) {
 
@@ -161,9 +164,21 @@ int main() {
 		glm::mat4 trans = glm::mat4(1.0f);
 		trans = glm::rotate(trans, glm::radians(180.0f), glm::vec3(0.0, 0.0, 1.0));
 		trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
-		trans = glm::translate(trans, glm::vec3(0, yPos, 0));
-		yPos = yPos - 0.001;
+		trans = glm::translate(trans, glm::vec3(xPos, yPos, 0));
 
+
+		if (glfwGetKey(window, GLFW_KEY_W) == (GLFW_PRESS || GLFW_REPEAT) ){
+			yPos = yPos - 0.005;
+		}
+		else if (glfwGetKey(window, GLFW_KEY_S) == (GLFW_PRESS || GLFW_REPEAT)) {
+			yPos = yPos + 0.005;
+		}
+		if (glfwGetKey(window, GLFW_KEY_A) == (GLFW_PRESS || GLFW_REPEAT)) {
+			xPos = xPos + 0.005;
+		}
+		else if (glfwGetKey(window, GLFW_KEY_D) == (GLFW_PRESS || GLFW_REPEAT)) {
+			xPos = xPos - 0.005;
+		}
 
 
 		glUseProgram(shaderProgram);
@@ -181,10 +196,13 @@ int main() {
 	}
 
 
+
 	glfwDestroyWindow(window);
 	glfwTerminate();
 	return 0;
 }
 
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
+}
 
