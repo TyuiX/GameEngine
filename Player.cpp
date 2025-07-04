@@ -1,7 +1,11 @@
 #include "Player.h"
+#include "Actor.h"
+
 
 Player::Player() {
-
+	name_ = "";
+	posX_ = 0;
+	posY_ = 0;
 }
 
 Player::Player(std::string name, float posX, float posY) {
