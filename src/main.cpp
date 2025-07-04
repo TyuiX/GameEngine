@@ -63,9 +63,9 @@ int main() {
 		glClear(GL_COLOR_BUFFER_BIT);
 
 	
-
-		testactor.Render(window);
 		testactor2.Render(window);
+		testactor.Render(window);
+
 
 
 

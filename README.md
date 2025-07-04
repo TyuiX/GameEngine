@@ -3,11 +3,18 @@ Project to learn skills and make game engine.
 
 
 ## Version 0.1
-### To Do
-:x: Key/Input detection						<br/>
-:x: Render Imported Image					<br/>
+
+:white_check_mark: Key/Input detection						<br/>
+:white_check_mark: Render Imported Image					<br/>
+:white_check_mark: Defining Actor							<br/>
+
+##	Version 0.2
+
 :x: Game Tick								<br/>
 :x: State/Environment changes				<br/>
-:x: Defining Actor/Environment				<br/>
+:x: Defining "Environment					<br/>
+:x: Collision Detection						<br/>
+:x: Layering								<br/>
+
 
 :x: :white_check_mark:
