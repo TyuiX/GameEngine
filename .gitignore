@@ -275,3 +275,9 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+*.vcxproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
