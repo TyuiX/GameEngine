@@ -84,7 +84,6 @@ int main() {
 		unsigned int transformLoc = glGetUniformLocation(testactor.GetShaderProgram(), "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
 
-		glBindVertexArray(testactor.GetVAO());
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 

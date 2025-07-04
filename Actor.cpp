@@ -131,4 +131,5 @@ unsigned int Actor::GetVAO() {
 void Actor::Update() {}
 void Actor::Render() {
 	glUseProgram(shaderProgram);
+	glBindVertexArray(VAO);
 }
