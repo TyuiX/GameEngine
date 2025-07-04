@@ -80,9 +80,7 @@ int main() {
 			xPos = xPos - 0.005;
 		}
 
-
-		glUseProgram(testactor.GetShaderProgram());
-
+		testactor.Render();
 		unsigned int transformLoc = glGetUniformLocation(testactor.GetShaderProgram(), "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
 

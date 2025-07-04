@@ -129,4 +129,6 @@ unsigned int Actor::GetVAO() {
 }
 // Leave Update and Render empty or implement them if needed
 void Actor::Update() {}
-void Actor::Render() {}
+void Actor::Render() {
+	glUseProgram(shaderProgram);
+}
