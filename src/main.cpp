@@ -59,8 +59,6 @@ int main() {
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glBindTexture(GL_TEXTURE_2D, testactor.GetTexture());
-
 		glm::mat4 trans = glm::mat4(1.0f);
 		trans = glm::rotate(trans, glm::radians(180.0f), glm::vec3(0.0, 0.0, 1.0));
 		trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
@@ -83,8 +81,6 @@ int main() {
 		testactor.Render();
 		unsigned int transformLoc = glGetUniformLocation(testactor.GetShaderProgram(), "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
-
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 
 		glfwSwapBuffers(window);

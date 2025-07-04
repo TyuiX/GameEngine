@@ -132,4 +132,6 @@ void Actor::Update() {}
 void Actor::Render() {
 	glUseProgram(shaderProgram);
 	glBindVertexArray(VAO);
+	glBindTexture(GL_TEXTURE_2D, texture);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
