@@ -40,7 +40,7 @@ Actor::Actor() {
 		0, 1, 3,
 		1, 2, 3
 	};
-	shaderProgram = glCreateProgram(); 
+	shaderProgram = glCreateProgram();
 	//Vertex Shader
 	unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -77,21 +77,21 @@ Actor::Actor() {
 }
 
 void Actor::SetName(std::string newName) {
-    name = newName;
+	name = newName;
 }
 
 int Actor::SetVisible() {
-    if (visible) return 1;
-    visible = true;
-    return 0;
+	if (visible) return 1;
+	visible = true;
+	return 0;
 }
 
 int Actor::SetInvisible() {
-    if (!visible) return 1;
-    visible = false;
-    return 0;
+	if (!visible) return 1;
+	visible = false;
+	return 0;
 }
-int Actor::SetImage(char * path) {
+int Actor::SetImage(char* path) {
 	int out = 1;
 	int width, height, nrChannels;
 	unsigned char* imgData = stbi_load(path, &width, &height, &nrChannels, 0);
@@ -110,13 +110,13 @@ int Actor::SetImage(char * path) {
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
 	else
-	{	
+	{
 		//return 0 let it know it failed
 		out = 0;
 	}
 	stbi_image_free(imgData);
 	return out;
-	
+
 }
 unsigned int Actor::GetTexture() {
 	return texture;
@@ -131,7 +131,5 @@ unsigned int Actor::GetVAO() {
 void Actor::Update() {}
 void Actor::Render() {
 	glUseProgram(shaderProgram);
-	glBindVertexArray(VAO);
-	glBindTexture(GL_TEXTURE_2D, texture);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }

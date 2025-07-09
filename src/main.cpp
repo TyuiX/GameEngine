@@ -47,9 +47,11 @@ int main() {
 	glViewport(0, 0, 1280, 720);
 
 	Actor testactor = Actor();
+	Actor testactor1 = Actor();
 
 	//LoadImage
 	testactor.SetImage("Images/terr.png");
+	testactor1.SetImage("Images/Circle-PNG-File.png");
 	float yPos = 0;
 	float xPos = 0;
 
