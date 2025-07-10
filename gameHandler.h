@@ -4,6 +4,7 @@ class gameHandler {
 private:
 	std::vector<std::vector<Actor>> gameStates;
 	int currentState;
+	int counter;
 public:
 	gameHandler();
 	//increaseState by 1
