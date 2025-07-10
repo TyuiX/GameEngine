@@ -33,6 +33,9 @@
     <ClCompile Include="Actor.cpp">
       <Filter>Source Files\class</Filter>
     </ClCompile>
+    <ClCompile Include="gameHandler.cpp">
+      <Filter>Source Files\class</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stb_image.h">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Environment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

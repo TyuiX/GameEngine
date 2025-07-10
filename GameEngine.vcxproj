@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Environment.cpp" />
+    <ClCompile Include="gameHandler.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -136,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Environment.h" />
+    <ClInclude Include="gameHandler.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="stb_image.h" />
   </ItemGroup>

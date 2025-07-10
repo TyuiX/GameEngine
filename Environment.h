@@ -2,7 +2,7 @@
 class Environment
 {
 protected:
-	int gamestate = 0;
+	int gamestate;
 
 	//place holder var for decal or image not sure what lib load render
 	// imagepointerClass image=;

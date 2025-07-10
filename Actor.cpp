@@ -1,7 +1,6 @@
 #include "Actor.h"
-#include<glad/glad.h>
-#include<GLFW/glfw3.h>
-#include "stb_image.h"
+
+#include <iostream>
 
 
 
@@ -26,8 +25,12 @@ const char* fragmentShaderSource = "#version 330 core\n"
 "}\n\0";
 
 Actor::Actor() {
+
 	name = "";
 	visible = false;
+	posX = 0, 
+	posY = 0;
+	player = false;
 
 	//object/Player
 	float square[] = {
@@ -129,7 +132,60 @@ unsigned int Actor::GetVAO() {
 }
 // Leave Update and Render empty or implement them if needed
 void Actor::Update() {}
-void Actor::Render() {
+void Actor::Render(GLFWwindow* window) {
+
+	
+	glm::mat4 trans = glm::mat4(1.0f);
+	trans = glm::rotate(trans, glm::radians(180.0f), glm::vec3(0.0, 0.0, 1.0));
+	trans = glm::scale(trans, glm::vec3(1, 1, 1));
+	trans = glm::translate(trans, glm::vec3(getX(), getY(), 0));
+
+	if (player == true) {
+		if (glfwGetKey(window, GLFW_KEY_W) == (GLFW_PRESS || GLFW_REPEAT)) {
+			std::cout << "w" << std::endl;
+			setY(getY() - 0.005);
+		}
+		else if (glfwGetKey(window, GLFW_KEY_S) == (GLFW_PRESS || GLFW_REPEAT)) {
+			setY(getY() + 0.005);
+		}
+		if (glfwGetKey(window, GLFW_KEY_A) == (GLFW_PRESS || GLFW_REPEAT)) {
+			setX(getX() + 0.005);
+		}
+		else if (glfwGetKey(window, GLFW_KEY_D) == (GLFW_PRESS || GLFW_REPEAT)) {
+			setX(getX() - 0.005);
+		}
+	}
+
+
+
+
 	glUseProgram(shaderProgram);
+	glBindVertexArray(VAO);
+	glBindTexture(GL_TEXTURE_2D, texture);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+
+	unsigned int transformLoc = glGetUniformLocation(shaderProgram, "transform");
+	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+}
+
+void Actor::setX(float x) {
+	posX = x;
+}
+void Actor::setY(float y) {
+	posY = y;
+}
+
+float Actor::getX() {
+	return posX;
+}
+float Actor::getY() {
+	return posY;
+}
+
+void Actor::setPlayer() {
+	player = true;
+}
+std::string Actor::getName() {
+	return name;
 }
