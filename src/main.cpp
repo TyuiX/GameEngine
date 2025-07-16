@@ -60,6 +60,9 @@ int main() {
 	game.addState();
 	game.addActor(testactor, 0, 0);
 	game.addActor(testactor2, 0, 1);
+	//game.addState();
+	//game.addActor(testactor, 1, 0);
+	//game.changeCurrentState(1);
 	while (!glfwWindowShouldClose(window)) {
 
 
