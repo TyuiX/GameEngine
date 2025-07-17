@@ -58,8 +58,10 @@ int main() {
 	float xPos = 0;
 	testactor.SetName("test");
 	game.addState();
-	game.addActor(testactor, 0, 0);
-	game.addActor(testactor2, 0, 1);
+	int id1 = game.addActor(testactor);
+	int id2 = game.addActor(testactor2);
+	game.addActorToState(id1, 0, 1);
+	game.addActorToState(id2, 0, 0);
 	//game.addState();
 	//game.addActor(testactor, 1, 0);
 	//game.changeCurrentState(1);
