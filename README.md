@@ -11,10 +11,10 @@ Project to learn skills and make game engine.
 ##	Version 0.2
 
 :x: Game Tick								<br/>
-:x: State/Environment changes				<br/>
+:white_check_mark: State/Environment changes				<br/>
 :x: Defining "Environment					<br/>
 :x: Collision Detection						<br/>
-:x: Layering								<br/>
+:white_check_mark: Layering								<br/>
 
 
 :x: :white_check_mark:
